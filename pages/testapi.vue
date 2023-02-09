@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAPIStore } from "~~/store/api";
-import { Product } from "../types/global";
+import { Product } from "~/types/global";
 
 //useFetch from vueuse
 const {
@@ -12,6 +12,7 @@ const {
 
 //State management using pinia
 const store = useAPIStore();
+onMounted(store.getProducts);
 </script>
 <template>
   <div class="d-flex justify-content-center gap-4 w-100">
