@@ -16,11 +16,13 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <NuxtLink to="/" class="nav-link">Home</NuxtLink>
+          <NuxtLink to="/datatable" class="nav-link">Data Table</NuxtLink>
           <NuxtLink to="/search" class="nav-link">Search</NuxtLink>
           <NuxtLink to="#" class="nav-link">Tags</NuxtLink>
           <NuxtLink to="#" class="nav-link">Heat Map</NuxtLink>
           <NuxtLink to="#" class="nav-link">Cluster Map</NuxtLink>
-          <NuxtLink to="#" class="nav-link">Routing</NuxtLink>
+          <NuxtLink to="/routing" class="nav-link">Routing</NuxtLink>
+          <NuxtLink to="/testapi" class="nav-link">TEST API</NuxtLink>
         </ul>
       </div>
     </div>

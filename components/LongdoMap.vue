@@ -1,12 +1,7 @@
-<template>
-  <div id="map">Loading...</div>
-</template>
 <script lang="ts" setup>
 const emit = defineEmits(["loaded"]);
 
-const scriptMap = ref<HTMLScriptElement | null>(
-  document.createElement("script")
-);
+const scriptMap = ref<HTMLScriptElement>(document.createElement("script"));
 const longdoMapApiKey = "f38639d33e37f4e422cd8085d997d55f";
 
 const addMapScript = () => {
@@ -15,9 +10,11 @@ const addMapScript = () => {
   document.head.appendChild(scriptMap.value);
   scriptMap.value.onload = () => {
     const longdo = window.longdo;
+    window.longdo = window.longdo || {};
     const map = new longdo.Map({
       placeholder: document.getElementById("map"),
     });
+    // console.log(typeof longdo);
     map.Event.bind("ready", () => {
       emit("loaded", longdo, map);
     });
@@ -37,7 +34,7 @@ const addMapScript = () => {
   };
 };
 
-function menuChange(item1: any /* item2: any, item3: any */) {
+function menuChange(item1: any) {
   if (item1.label == "WMS" || showTMS.value == true) {
     showWMS.value = !showWMS.value;
     showTMS.value = false;
@@ -50,12 +47,6 @@ function menuChange(item1: any /* item2: any, item3: any */) {
     showTMS.value = false;
     showWMS.value = false;
   }
-  // if (item2) {
-  //   showTMS.value = !showTMS.value;
-  // }
-  // if (item3) {
-  //   (showWMS.value = false), (showTMS.value = false);
-  // }
 }
 
 const showWMS = ref(false);
@@ -111,6 +102,10 @@ onBeforeUnmount(() => {
   }
 });
 </script>
+
+<template>
+  <div id="map">Loading...</div>
+</template>
 
 <style scoped>
 #map {

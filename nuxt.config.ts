@@ -2,4 +2,9 @@
 export default defineNuxtConfig({
   ssr: false,
   css: ["~/assets/css/style.css"],
+  modules: [
+    // ...
+    "@pinia/nuxt",
+    "@vueuse/nuxt",
+  ],
 });
